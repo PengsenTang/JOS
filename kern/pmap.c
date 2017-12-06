@@ -98,17 +98,11 @@ boot_alloc(uint32_t n)
 	// to a multiple of PGSIZE.
 	//
 	// LAB 2: Your code here.
-  //      if(n==0)
-//            return nextfree;
         result = nextfree;
         nextfree = ROUNDUP(nextfree+n,PGSIZE);
         if((uint32_t) nextfree - KERNBASE > (npages* PGSIZE))
             panic("Out of memory!");
         return result;    
-   // nextfree +=n;
-     //   nextfree = ROUNDUP((char*)nextfree, PGSIZE);
-//	return result;
-       // return NULL;
 }
 
 // Set up a two-level page table:
